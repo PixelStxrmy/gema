@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://byivc62tnjw8v"]
+
+[ext_resource type="Script" uid="uid://brv01r4hbw66q" path="res://Scripts/changetest_2.gd" id="1_uhsen"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhsen")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 285.0
+offset_right = 619.0
+offset_bottom = 360.0
+text = "scene 2"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

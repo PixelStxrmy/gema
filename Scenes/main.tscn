@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://cpt7jmtr07ci0"]
+
+[ext_resource type="Script" uid="uid://b6va7q71mdj1q" path="res://Scripts/GameController.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://s3tlplqncbuk" path="res://Scenes/room_swap_test_1.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://bqyij74rq3x8y" path="res://Scripts/transition_screen.gd" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://5115trg8nuri" path="res://Scenes/player.tscn" id="3_jjvhh"]
+
+[sub_resource type="Animation" id="Animation_8gbba"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bo1nx"]
+resource_name = "fade_to_black"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jjvhh"]
+resource_name = "fade_to_normal"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.497991),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jjvhh"]
+_data = {
+&"RESET": SubResource("Animation_8gbba"),
+&"fade_to_black": SubResource("Animation_bo1nx"),
+&"fade_to_normal": SubResource("Animation_jjvhh")
+}
+
+[node name="Main" type="Node" node_paths=PackedStringArray("world_2d", "gui")]
+script = ExtResource("1_bo1nx")
+world_2d = NodePath("World_2d")
+gui = NodePath("GUI")
+
+[node name="World_2d" type="Node2D" parent="."]
+
+[node name="room swap test 1" parent="World_2d" instance=ExtResource("2_8gbba")]
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" parent="Player" instance=ExtResource("3_jjvhh")]
+position = Vector2(620, 896)
+
+[node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="transition_screen" type="CanvasLayer" parent="."]
+script = ExtResource("3_8gbba")
+
+[node name="ColorRect" type="ColorRect" parent="transition_screen"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="transition_screen"]
+libraries = {
+&"": SubResource("AnimationLibrary_jjvhh")
+}
