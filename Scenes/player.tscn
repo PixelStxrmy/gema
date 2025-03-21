@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://5115trg8nuri"]
+[gd_scene load_steps=5 format=3 uid="uid://5115trg8nuri"]
 
 [ext_resource type="Script" uid="uid://cwoi8gabyui7p" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://d3rawr8eqcxai" path="res://Graphics/clara bald.png" id="1_v0iea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(24, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+radius = 18.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_cvnsp")
@@ -18,9 +21,10 @@ position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_cvnsp")
 debug_color = Color(0.598436, 0.617171, 0.979934, 0.42)
 
-[node name="InteractionRay" type="RayCast2D" parent="."]
-scale = Vector2(20, 20)
-target_position = Vector2(0, 13.6)
+[node name="intZone" type="Area2D" parent="."]
+collision_layer = 0
 collision_mask = 2
-hit_from_inside = true
-collide_with_areas = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="intZone"]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_cvnsp")
