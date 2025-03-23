@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 	PlayerInput = get_input()
 	
 	if (int_zone && PlayerInput != Vector2.ZERO):
+		Global.Player_input = PlayerInput
 		int_zone.position = PlayerInput * 20
 	
 	velocity = lerp(velocity, PlayerInput * SPEED, delta * ACCEL)
@@ -37,6 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 		var target = int_zone.get_overlapping_areas()
 		if target:
+			print(target)
 			Signals.interact.emit(target)
 		else:
 			target = int_zone.get_overlapping_bodies()

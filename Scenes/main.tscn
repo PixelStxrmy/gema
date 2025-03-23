@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cpt7jmtr07ci0"]
 
 [ext_resource type="Script" uid="uid://b6va7q71mdj1q" path="res://Scripts/GameController.gd" id="1_bo1nx"]
-[ext_resource type="PackedScene" uid="uid://s3tlplqncbuk" path="res://Scenes/room_swap_test_1.tscn" id="2_8gbba"]
+[ext_resource type="PackedScene" uid="uid://b7y4p52g8wi4o" path="res://Scenes/propah_debug_room.tscn" id="2_jjvhh"]
 [ext_resource type="Script" uid="uid://bqyij74rq3x8y" path="res://Scripts/transition_screen.gd" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://5115trg8nuri" path="res://Scenes/player.tscn" id="3_jjvhh"]
 
@@ -66,12 +66,12 @@ gui = NodePath("GUI")
 
 [node name="World_2d" type="Node2D" parent="."]
 
-[node name="room swap test 1" parent="World_2d" instance=ExtResource("2_8gbba")]
+[node name="Propah debug room" parent="World_2d" instance=ExtResource("2_jjvhh")]
 
 [node name="Player" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="Player" instance=ExtResource("3_jjvhh")]
-position = Vector2(620, 896)
+position = Vector2(641, 321)
 
 [node name="Camera2D" type="Camera2D" parent="Player/CharacterBody2D"]
 

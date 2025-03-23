@@ -7,7 +7,7 @@ size = Vector2(32, 32)
 
 [node name="StaticBody2D" type="StaticBody2D"]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 5
 script = ExtResource("1_pi15k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -16,8 +16,3 @@ script = ExtResource("1_pi15k")
 shape = SubResource("RectangleShape2D_5d17x")
 
 [node name="colldetect" type="RayCast2D" parent="."]
-scale = Vector2(8, 8)
-target_position = Vector2(0, 28)
-collision_mask = 4
-hit_from_inside = true
-collide_with_areas = true
