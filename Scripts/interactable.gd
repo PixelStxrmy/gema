@@ -12,11 +12,8 @@ var moving: bool = false
 
 func _ready() -> void:
 	Signals.interact.connect(recieve)
-	var new_texture = preload("res://Graphics/basic bitch player.png")
+	var new_texture = load(img)
 	Sprite.texture = new_texture
-	var spoopy = get_tree()
-	if TileMapLayer in spoopy:
-		print("yipoeppeee")
 
 func _process(delta: float) -> void:
 	colldetector.target_position = Global.Player_input *3
@@ -28,8 +25,8 @@ func recieve(target):
 			if target[0] == self:
 				if interact_type == "Dialogue":
 					var dia = load(dialogue)
-					Global.Player_busy
 					DialogueManager.show_dialogue_balloon(dia)
+					
 				if interact_type == "Pushable":
 					var tween = get_tree().create_tween()
 					var new_pos = position + Global.Player_input *32

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_14"
+type="Resource"
+uid="uid://bsatseoi2x60x"
+path="res://.godot/imported/debug_room_02_test.dialogue-7d15fb8241c905c579768bbfaf292eee.tres"
+
+[deps]
+
+source_file="res://Dialogue/debug_room_02_test.dialogue"
+dest_files=["res://.godot/imported/debug_room_02_test.dialogue-7d15fb8241c905c579768bbfaf292eee.tres"]
+
+[params]
+
+defaults=true

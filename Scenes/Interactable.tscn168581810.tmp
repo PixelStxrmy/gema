@@ -16,8 +16,7 @@ script = ExtResource("1_pi15k")
 shape = SubResource("RectangleShape2D_5d17x")
 
 [node name="colldetect" type="RayCast2D" parent="."]
-visible = false
-scale = Vector2(5, 2)
+scale = Vector2(8, 8)
 target_position = Vector2(0, 28)
 collision_mask = 4
 hit_from_inside = true

@@ -1,0 +1,12 @@
+~ start
+Literal god: This is a different room
+Literal god: You got here through that door earlier, good job!
+Literal god: I've got business though, so buh byee
+- Uhm, bye..?
+	Literal god: :3
+	=> END
+- WAIT!
+	Literal god: NUH UH
+	=> END
+do emit(Signals.dia_over)
+=> END

@@ -10,7 +10,7 @@ var current_gui_scene
 func _ready():
 	Global.game_controller = self
 	current_gui_scene = $GUI/Control
-	current_2d_scene = $"World_2d/room swap test 1"
+	current_2d_scene = $"World_2d/Propah debug room"
 
 func change_gui_scene(new_scene: String, delete: bool = true, keep_running: bool = false) -> void:
 	if current_gui_scene != null:
