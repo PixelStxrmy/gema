@@ -8,5 +8,4 @@ Literal god: I've got business though, so buh byee
 - WAIT!
 	Literal god: NUH UH
 	=> END
-do emit(Signals.dia_over)
 => END

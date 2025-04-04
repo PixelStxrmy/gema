@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://b7y4p52g8wi4o"]
+[gd_scene load_steps=8 format=4 uid="uid://b7y4p52g8wi4o"]
 
-[ext_resource type="Texture2D" uid="uid://dtgasagcyas2g" path="res://Graphics/woikin on it.png" id="1_rc6x2"]
 [ext_resource type="PackedScene" uid="uid://di2g2rviidk2p" path="res://Scenes/Interactable.tscn" id="2_evp8j"]
 [ext_resource type="PackedScene" uid="uid://jb4p070ieefa" path="res://Scenes/transition_node.tscn" id="3_kiob4"]
+[ext_resource type="PackedScene" uid="uid://0yq5g1gdr0yu" path="res://Scenes/light.tscn" id="4_eyvs7"]
+[ext_resource type="PackedScene" uid="uid://3ggj6d0uh56k" path="res://Scenes/antilight.tscn" id="4_m51ke"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eyvs7"]
+load_path = "res://.godot/imported/woikin on it.png-9fcd28b2e5db611122ec805e07a15934.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evp8j"]
-texture = ExtResource("1_rc6x2")
+texture = SubResource("CompressedTexture2D_eyvs7")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
@@ -112,3 +116,50 @@ position = Vector2(544, 93)
 scale = Vector2(3, 1)
 next_scene = "res://Scenes/propah_debug_room2.tscn"
 next_pos = Vector2(544, 380)
+
+[node name="lights" type="Node" parent="."]
+
+[node name="LightOccluder2D" parent="lights" instance=ExtResource("4_m51ke")]
+position = Vector2(544, 83)
+scale = Vector2(-392.566, -16.3295)
+
+[node name="PointLight2D" parent="lights" instance=ExtResource("4_eyvs7")]
+position = Vector2(459, 313)
+color = Color(0.576471, 0.458824, 0.298039, 0.466667)
+energy = 0.69
+texture_scale = 2.44
+
+[node name="PointLight2D2" parent="lights" instance=ExtResource("4_eyvs7")]
+position = Vector2(830, 249)
+color = Color(0.649033, 0.812981, 0.928616, 1)
+energy = 0.73
+texture_scale = 2.44
+
+[node name="LightOccluder2D2" parent="lights" instance=ExtResource("4_m51ke")]
+position = Vector2(980, 225)
+scale = Vector2(48.2715, -30.0163)
+
+[node name="LightOccluder2D4" parent="lights" instance=ExtResource("4_m51ke")]
+position = Vector2(400, 350)
+scale = Vector2(48.2715, -30.0163)
+
+[node name="LightOccluder2D5" parent="lights" instance=ExtResource("4_m51ke")]
+position = Vector2(980, 176)
+scale = Vector2(48.2715, -30.0163)
+
+[node name="LightOccluder2D3" parent="lights" instance=ExtResource("4_m51ke")]
+position = Vector2(923, 158)
+scale = Vector2(1.36799, -92.8021)
+
+[node name="PointLight2D3" parent="lights" instance=ExtResource("4_eyvs7")]
+position = Vector2(549, 116)
+color = Color(0.729044, 0.65451, 0.817682, 1)
+energy = 0.68
+texture_scale = 0.97
+
+[node name="interactables" type="Node" parent="."]
+
+[node name="Interactable" parent="interactables" instance=ExtResource("2_evp8j")]
+position = Vector2(467, 335)
+interact_type = "Pushable"
+img = "res://Graphics/basic bitch player.png"

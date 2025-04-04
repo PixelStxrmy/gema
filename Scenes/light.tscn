@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://0yq5g1gdr0yu"]
+
+[ext_resource type="Texture2D" uid="uid://bttw53ipqbm31" path="res://Graphics/light.png" id="1_veqsg"]
+
+[node name="PointLight2D" type="PointLight2D"]
+shadow_enabled = true
+texture = ExtResource("1_veqsg")

@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=4 uid="uid://dtembrtvbt441"]
+[gd_scene load_steps=7 format=4 uid="uid://dtembrtvbt441"]
 
-[ext_resource type="Texture2D" uid="uid://dtgasagcyas2g" path="res://Graphics/woikin on it.png" id="1_bw7j3"]
 [ext_resource type="PackedScene" uid="uid://di2g2rviidk2p" path="res://Scenes/Interactable.tscn" id="2_obhat"]
 [ext_resource type="PackedScene" uid="uid://jb4p070ieefa" path="res://Scenes/transition_node.tscn" id="3_4s2oc"]
+[ext_resource type="PackedScene" uid="uid://0yq5g1gdr0yu" path="res://Scenes/light.tscn" id="4_ij2g5"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eyvs7"]
+load_path = "res://.godot/imported/woikin on it.png-9fcd28b2e5db611122ec805e07a15934.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_evp8j"]
-texture = ExtResource("1_bw7j3")
+texture = SubResource("CompressedTexture2D_eyvs7")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
@@ -113,3 +116,12 @@ position = Vector2(543, 428)
 scale = Vector2(6.5, 2)
 next_scene = "res://Scenes/propah_debug_room.tscn"
 next_pos = Vector2(544, 140)
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="PointLight2D" parent="Lights" instance=ExtResource("4_ij2g5")]
+position = Vector2(538, 217)
+color = Color(0.77167, 0.59708, 0.856029, 1)
+energy = 2.45
+blend_mode = 2
+texture_scale = 2.35

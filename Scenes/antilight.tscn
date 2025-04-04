@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://3ggj6d0uh56k"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8pp07"]
+polygon = PackedVector2Array(1, 1, 1, -1, -1, -1, -1, 1)
+
+[node name="LightOccluder2D" type="LightOccluder2D"]
+scale = Vector2(-62.8394, -15.0723)
+occluder = SubResource("OccluderPolygon2D_8pp07")

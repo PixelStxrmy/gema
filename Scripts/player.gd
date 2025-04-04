@@ -12,7 +12,7 @@ var PlayerInput = get_input()
 func _ready() -> void:
 	Global.plr = self
 	Signals.set_player_position.connect(set_pos)
-	DialogueManager.dialogue_ended.connect(_on_dialogue_finished)
+	Dialogic.timeline_ended.connect(_on_timeline_ended)
 	int_zone.position = (Vector2.DOWN * 20)
 
 func get_input():
@@ -36,11 +36,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if !Global.player_busy:
 		if event.is_action_pressed("interact"):
 			
+			
 			var target = int_zone.get_overlapping_areas()
 			if target:
 				Global.player_busy = true
 				print(Global.Player_busy)
 				Signals.interact.emit(target)
+				
 			else:
 				Global.player_busy = true
 				target = int_zone.get_overlapping_bodies()
@@ -49,6 +51,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				else:
 					print("I fucking give up man")
 
+func _on_timeline_ended():
+	Global.player_busy = false
+	print("balls")
 
 func set_pos(pos):
 	position = pos
@@ -56,3 +61,6 @@ func set_pos(pos):
 
 func _on_dialogue_finished():
 	print("DATT")
+
+func poop():
+	print("poopy poopy in my pants")
