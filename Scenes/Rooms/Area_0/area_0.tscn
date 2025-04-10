@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b0wis4fcf1e2t"]
 
-[ext_resource type="Script" uid="uid://byt48b6h8ng6w" path="res://Scenes/Rooms/Area_0/room_manager.gd" id="1_6whlj"]
+[ext_resource type="Script" uid="uid://byt48b6h8ng6w" path="res://Scripts/room_manager.gd" id="1_6whlj"]
 
 [node name="Area_0" type="Node2D"]
 
